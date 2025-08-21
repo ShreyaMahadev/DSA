@@ -1,0 +1,21 @@
+bool isArmstrong(int num) {
+    int original = num;
+    int n = 0;
+
+    // count digits
+    int temp = num;
+    while (temp > 0) {
+        n++;
+        temp /= 10;
+    }
+
+    int sum = 0;
+    temp = num;
+    while (temp > 0) {
+        int digit = temp % 10;
+        sum += pow(digit, n);  // raise digit to power n
+        temp /= 10;
+    }
+
+    return sum == original;
+}
