@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& arr) {
+        int n=arr.size();
+//Since a mountain array always has a peak strictly between the first and last element, you don’t need to check the edges at all.
+
+        int start=1; // avoid checking index 0
+        int end=n-2;  // avoid checking index n-1
+        // Peak condition: arr[mid] > arr[mid-1] and arr[mid] > arr[mid+1]
+
+        while(start<=end){
+            int mid=(start+end)/2;  //Check if arr[mid] is the peak
+            if(arr[mid-1]<arr[mid] && arr[mid+1]<arr[mid]) 
+                return mid;
+            else if(arr[mid-1]<arr[mid]) //We are on the increasing slope (left side of peak)
+                start=mid+1;  // Move search space to the right
+            else    //We are on the decreasing slope (right side of peak)
+                end=mid-1;     // Move search space to the left
+        }  
+        return -1; 
+        
+         }
+};
