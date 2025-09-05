@@ -1,0 +1,15 @@
+#include <bits/stdc++.h> 
+vector<int> findLeaders(vector<int> &arr, int n) {
+    
+    int leader=INT_MIN;
+    vector<int> ans;
+    for(int i=n-1;i>=0;i--){    //back traversal
+        if(arr[i]>leader){
+            ans.push_back(arr[i]);
+        }
+        leader=max(leader,arr[i]);  //Keeps track of rightmost maximum
+
+    }
+    reverse(ans.begin(),ans.end()); //we are supposed to return in the same order as in the array
+    return ans;
+}
