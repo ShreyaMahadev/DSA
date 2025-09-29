@@ -1,0 +1,27 @@
+class Solution {
+public:
+    void quickSort(vector<int>& nums, int left, int right) {
+        if (left >= right) return;  // base case
+        
+        int pivot = nums[right];   // choose last element as pivot
+        int i = left - 1;          // pointer for smaller elements
+        
+        for (int j = left; j < right; j++) {
+            if (nums[j] <= pivot) {
+                i++;
+                swap(nums[i], nums[j]);
+            }
+        }
+        swap(nums[i + 1], nums[right]);  // put pivot in correct place
+        int pivotIndex = i + 1;
+        
+        // recursive calls
+        quickSort(nums, left, pivotIndex - 1);
+        quickSort(nums, pivotIndex + 1, right);
+    }
+
+    vector<int> sortArray(vector<int>& nums) {
+        quickSort(nums, 0, nums.size() - 1);
+        return nums;
+    }
+};
