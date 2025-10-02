@@ -1,0 +1,13 @@
+class Solution {
+public:
+    string toLowerCase(string s) {
+        string ans="";
+        for(int c=0;c<s.size();c++){
+            int lower=tolower(s[c]);
+            ans+=lower;
+        }
+        return ans;
+
+        
+    }
+};
