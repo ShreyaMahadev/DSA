@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int new_data) {
+        data = new_data;
+        next = nullptr;
+    }
+};
+
+class myQueue {
+private:
+    Node* head;
+    Node* tail;
+    int count;
+
+public:
+    myQueue() {
+        head = nullptr;
+        tail = nullptr;
+        count = 0;
+    }
+
+    bool isEmpty() {
+        return head == nullptr;
+    }
+
+    void enqueue(int x) {
+        Node* newNode = new Node(x);
+        if (isEmpty()) {
+            head = tail = newNode;
+        } else {
+            tail->next = newNode;
+            tail = newNode;
+        }
+        count++;
+    }
+
+    void dequeue() {
+        if (isEmpty()) {
+            cout << "Queue is empty! Cannot dequeue.\n";
+            return;
+        }
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        count--;
+
+        if (head == nullptr) {
+            tail = nullptr; // queue became empty
+        }
+    }
+
+    int getFront() {
+        if (isEmpty()) return -1;
+        return head->data;
+    }
+
+    int size() {
+        return count;
+    }
+};
