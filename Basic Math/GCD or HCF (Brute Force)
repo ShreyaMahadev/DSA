@@ -1,0 +1,16 @@
+class Solution {
+  public:
+    int gcd(int a, int b) {
+        
+        int n=min(a,b);
+        int hcf=0;
+        for(int i=1;i<=n;i++)
+        {
+            if(a%i==0 && b%i==0)
+                hcf=max(i,hcf);
+        }
+        return hcf;
+    }
+};
+
+Time Complexity : O(min(a,b))
