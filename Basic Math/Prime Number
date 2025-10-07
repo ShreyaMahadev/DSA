@@ -8,3 +8,5 @@ bool isPrime(int n)
     }
     return true;
 }
+
+Time Complexity : sqrt(n)
