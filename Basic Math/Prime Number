@@ -9,4 +9,4 @@ bool isPrime(int n)
     return true;
 }
 
-Time Complexity : sqrt(n)
+Time Complexity : O(sqrt(n))
