@@ -11,5 +11,5 @@ public:
     }
 };
 
-Time Complexity : O(2^n)
+Time Complexity : O(2^n) i.e exponential
 Space Complexity : O(n)
