@@ -1,0 +1,15 @@
+class Solution {
+public:
+    bool isSorted(vector<int>& arr, int n) 
+    {
+        // Base case
+        if (n == 0 || n == 1)
+            return true;
+
+        // Check current pair AND recursively check the rest
+        return arr[n - 1] >= arr[n - 2] && isSorted(arr, n - 1);
+    }
+};
+
+Time Complexity : O(n)
+Space Complexity : O(n)
