@@ -1,0 +1,30 @@
+class Solution {
+public:
+    void generate(int index, vector<int>& nums, vector<int>& current, vector<vector<int>>& result) {
+        // Base case: if we have considered all elements
+        if (index == nums.size()) {
+            result.push_back(current);
+            return;
+        }
+
+        // Choice 1: include the current element
+        current.push_back(nums[index]);
+        generate(index + 1, nums, current, result);
+
+        // Backtrack
+        current.pop_back();
+
+        // Choice 2: exclude the current element
+        generate(index + 1, nums, current, result);
+    }
+
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> result;
+        vector<int> current;
+        generate(0, nums, current, result);
+        return result;
+    }
+};
+
+Time Complexity : O(n * 2^n)
+Space Complexity : O(n)
