@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool binarySearch(vector<int>& arr, int low, int high, int target) 
+    {
+        // Base case: element not found
+        if (low > high)
+            return false;
+
+        int mid = low + (high - low) / 2;
+
+        // Check if the middle element is the target
+        if (arr[mid] == target)
+            return true;
+
+        // Search in left half
+        else if (target < arr[mid])
+            return binarySearch(arr, low, mid - 1, target);
+
+        // Search in right half
+        else
+            return binarySearch(arr, mid + 1, high, target);
+    }
+};
+
+Time Complexity : O(logN)
+Space Complexity : O(logN)
