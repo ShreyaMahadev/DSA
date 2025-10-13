@@ -1,0 +1,32 @@
+Given an array nums of distinct integers, return all the possible permutations.
+
+class Solution {
+public:
+    void backtrack(vector<int>& nums, vector<vector<int>>& result, int index) {
+        // Base case: if index reaches end, store the permutation
+        if (index == nums.size()) {
+            result.push_back(nums);
+            return;
+        }
+
+        // Try placing each number at the current index
+        for (int i = index; i < nums.size(); i++) {
+            // Swap to place nums[i] at current position
+            swap(nums[i], nums[index]);
+
+            // Recurse for the next position
+            backtrack(nums, result, index + 1);
+
+            // Backtrack: undo the swap
+            swap(nums[i], nums[index]);
+        }
+    }
+
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> result;
+        backtrack(nums, result, 0);
+        return result;
+    }
+};
+
+Total Time Complexity=O(n×n!)
