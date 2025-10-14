@@ -13,3 +13,7 @@ public:
         
     }
 };
+
+Time Complexity: O(n + m)
+(where n = s1.length(), m = t1.length())
+Space Complexity: O(1)
