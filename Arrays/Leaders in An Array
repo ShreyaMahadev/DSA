@@ -13,3 +13,6 @@ vector<int> findLeaders(vector<int> &arr, int n) {
     reverse(ans.begin(),ans.end()); //we are supposed to return in the same order as in the array
     return ans;
 }
+
+Time Complexity: O(n)
+Space Complexity: O(n)
