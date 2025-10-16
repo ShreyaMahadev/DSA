@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int n = s.size();
+        int left = 0;   // Left pointer (start of window)
+        int maxLen = 0; // Store the maximum length found so far
+
+        // Stores last seen index of each character (ASCII)
+        // Initialize with -1 meaning "not seen yet"
+        vector<int> lastIndex(256, -1);
+
+        // Right pointer (end of window)
+        for (int right = 0; right < n; right++) {
+            char current = s[right];  // Current character
+
+            // If we have seen the character before,
+            // move 'left' to one position after its previous index
+            if (lastIndex[current] != -1)
+                left = max(left, lastIndex[current] + 1);
+
+            // Update the last seen index of current character
+            lastIndex[current] = right;
+
+            // Calculate window length = right - left + 1
+            maxLen = max(maxLen, right - left + 1);
+        }
+
+        return maxLen;
+    }
+};
+
+Time Complexity : O(N)
+Space Complexity : O(1)
