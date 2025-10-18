@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) 
+    {
+    set<int> s1(nums1.begin(), nums1.end());// unique elements from nums1
+    set<int> s2(nums2.begin(), nums2.end()); // unique elements from nums2
+    vector<int> result;
+
+    for (int num : s1) 
+    {
+        if (s2.find(num) != s2.end())  // check if num is in nums2
+            result.push_back(num);    
+    }
+    return result;
+    }
+};
+
+TC : O(nlogn+mlogm+nlogm)=O((n+m)logmax(n,m))
+SC : O(n+m) 
+s1 stores at most n elements → O(n)
+s2 stores at most m elements → O(m)
