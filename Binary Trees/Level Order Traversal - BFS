@@ -29,3 +29,6 @@ public:
         return result;  // Return all levels
     }
 };
+
+TC=O(N)
+SC=O(N)
