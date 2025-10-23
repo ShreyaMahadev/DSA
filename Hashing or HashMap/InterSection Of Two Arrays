@@ -6,10 +6,10 @@ public:
     set<int> s2(nums2.begin(), nums2.end()); // unique elements from nums2
     vector<int> result;
 
-    for (int num : s1) 
+    for (int num : s1)  //Trversing through first array
     {
         if (s2.find(num) != s2.end())  // check if num is in nums2
-            result.push_back(num);    
+            result.push_back(num);    //its not there so insert
     }
     return result;
     }
