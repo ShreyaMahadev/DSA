@@ -1,0 +1,28 @@
+// Using 3 pointer : prev, curr, nextptr
+
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* prev=NULL;
+        ListNode* curr=head;
+        ListNode* nextptr=NULL;
+
+        while(curr!=NULL)
+        {
+            nextptr=curr->next;
+            curr->next=prev;    // Reverse the current nodes link
+
+            //Trversing forward
+            prev=curr;      // Move prev to current node
+            curr=nextptr;   // Move curr to next node
+
+        }
+        // At the end, prev will point to the new head of the reversed list
+        return prev;
+        
+        
+    }
+};
+
+TC : O(N)
+SC : O(1)
