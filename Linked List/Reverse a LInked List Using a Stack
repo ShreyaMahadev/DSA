@@ -1,0 +1,31 @@
+//Brute Force Solution : Using Stack
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) 
+    {
+        stack<int> st;  // Stack to store the values of the nodes
+        ListNode* temp=head;
+
+        // Push all node values onto the stack
+        while(temp!=NULL){
+            st.push(temp->val);
+            temp=temp->next;
+        }
+
+        // Reset temp to head to overwrite values in reverse order
+        temp=head;
+
+        // Pop values from stack and assign back to the list nodes
+        while(temp!=NULL){
+            temp->val=st.top();
+            st.pop();
+            temp=temp->next;
+            
+        }
+        return head;
+        
+    }
+};
+
+TC: O(n)
+SC: O(n)
