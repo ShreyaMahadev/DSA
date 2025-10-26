@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> frequencySort(vector<int>& nums) {
+        // Step 1: Count frequencies
+        unordered_map<int,int> freq;
+        for(int num : nums) 
+            freq[num]++;
+        
+        // Step 2: Sort using a simple comparator
+        sort(nums.begin(), nums.end(), [&](int a, int b)
+        {
+            // If frequency is different, sort by frequency ascending
+            if(freq[a] != freq[b]) 
+                return freq[a] < freq[b];  //smaller frequency comes first
+            
+            return a > b;  //if frequencies equal, larger number comes first
+        });
+        
+        return nums;
+    }
+};
