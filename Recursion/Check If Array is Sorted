@@ -1,3 +1,5 @@
+// Backward Recursion : Starts checking from the end of the array
+
 class Solution {
 public:
     bool isSorted(vector<int>& arr, int n) 
