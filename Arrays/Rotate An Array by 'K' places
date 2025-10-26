@@ -1,0 +1,22 @@
+// Rotates the array to the Right by k places
+// Right rotation: The last k elements move to the front.
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int n = nums.size();
+        k = k % n; // handle k > n
+
+        // Step 1: reverse first n-k elements
+        reverse(nums.begin(), nums.end() - k);
+
+        // Step 2: reverse last k elements
+        reverse(nums.end() - k, nums.end());
+
+        // Step 3: reverse whole array
+        reverse(nums.begin(), nums.end());
+    }
+};
+
+Time: O(n) → 3 reversals, each O(n)
+Space: O(1)
