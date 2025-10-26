@@ -16,6 +16,9 @@ public:
             }      
         }
 
+        if(j==-1)        //indicates no zeros in the array, array is fine
+            return;
+
         for(int i=j+1;i<n;i++)  // Start from the element after the first zero
         {
             if(nums[i]!=0)
