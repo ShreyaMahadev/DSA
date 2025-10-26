@@ -1,0 +1,24 @@
+//Approach :
+reverse first k elements
+reverse last n-k elements
+reverse whole array
+
+class Solution {
+public:
+    void leftRotate(vector<int>& nums, int k) {
+        int n = nums.size();
+        k = k % n; // handle k > n
+
+        // Step 1: reverse first k elements
+        reverse(nums.begin(), nums.begin() + k);
+
+        // Step 2: reverse last n-k elements
+        reverse(nums.begin() + k, nums.end());
+
+        // Step 3: reverse the whole array
+        reverse(nums.begin(), nums.end());
+    }
+};
+
+Time: O(n) → 3 reversals
+Space: O(1)
