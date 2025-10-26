@@ -1,0 +1,21 @@
+// Using set removes duplicates automatically.
+
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) 
+    {
+    set<int> s1(nums1.begin(), nums1.end());// unique elements from nums1
+    set<int> s2(nums2.begin(), nums2.end()); // unique elements from nums2
+    vector<int> result;
+
+    for (int num : s1)  //Trversing through first array
+    {
+        if (s2.find(num) != s2.end())  // check if num is in nums2
+            result.push_back(num);    //its not there so insert
+    }
+    return result;
+    }
+};
+
+TC: O(nlogm + m) find in set takes(log m)
+SC : O(n+m)
