@@ -1,0 +1,25 @@
+Question : Given an integer array nums and an integer k, find the number of continuous subarrays whose sum equals k.
+Brute Force Solution : 2 nested loops , calculate sum, check if eqaul to k, if yes increment count
+
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int count=0;
+        int n=nums.size();
+        for(int i=0;i<n;i++)  // Outer loop → starting index of subarray
+        {
+            int sum=0;  // Sum of current subarray starting at i
+            for(int j=i;j<n;j++)  // Inner loop → ending index of subarray
+            {
+                sum+=nums[j];
+                if(sum==k)
+                count++;
+            }
+            
+        }
+        return count;
+    }
+};
+
+TC : O(N^2)
+SC : O(1)
