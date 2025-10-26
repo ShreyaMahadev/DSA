@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n=nums.size();
+        int sum1=n*(n+1)/2;   //Actual sum
+        int sum2=0;
+        for(int i=0;i<n;i++){
+            sum2+=nums[i];  //Sum of elements in the array
+        }
+        int missing=sum1-sum2;  //missingno=actual_sum - array_sum
+        return missing;
+        
+    }
+};
+
+Time	O(n) → one pass to calculate sum of array
+Space	O(1) → no extra space used
