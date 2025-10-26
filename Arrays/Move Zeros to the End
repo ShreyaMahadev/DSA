@@ -1,0 +1,32 @@
+// 2 Pointers Approach
+i-> traversal
+j-> keep track of the zero elements
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n=nums.size();
+        int j=-1;
+        for(int k=0;k<n;k++)  // Find the first zero in the array
+        {
+            if(nums[k]==0)
+            {
+                j=k;
+                break;   // Stop at the first zero
+            }      
+        }
+
+        for(int i=j+1;i<n;i++)  // Start from the element after the first zero
+        {
+            if(nums[i]!=0)
+            {
+                swap(nums[i],nums[j]);  // Swap current non-zero with first zero
+                j++;  // Move j to next zero index
+            }
+        }
+        
+    }
+};
+
+Time: O(n)
+Space: O(1)
