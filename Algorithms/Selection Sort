@@ -1,3 +1,6 @@
+// Selection Sort : Find the minimum unsorted array and swap it with the element at the beginning 
+// n elements, (n-1) passes
+
 class Solution {
   public:
     // Function to perform selection sort on the given array.
@@ -14,3 +17,6 @@ class Solution {
         }
     }
 };
+
+TC : O(N^2) for all best, worst, avg cases
+SC : O(1)
