@@ -1,5 +1,10 @@
 // Rotates the array to the Right by k places
 // Right rotation: The last k elements move to the front.
+// Approach 
+reverse first n-k elements
+reverse last k elements
+reverse whole array
+
 
 class Solution {
 public:
