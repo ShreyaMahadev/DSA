@@ -1,0 +1,29 @@
+
+vector<int> prevSmaller(vector<int>& arr) {
+        int n = arr.size();
+        vector<int> ans;
+        stack<int> st;
+
+        for (int i = 0; i < n; i++) {
+            int curr = arr[i];
+
+            // Pop all elements >= current, since we want strictly smaller
+            while (!st.empty() && st.top() >= curr)
+                st.pop();
+
+            // If stack empty => no smaller element
+            if (st.empty())
+                ans.push_back(-1);
+            else
+                ans.push_back(st.top());
+
+            // Push current element for future elements
+            st.push(curr);
+        }
+
+        return ans;
+    }
+};
+
+TC : O(N)
+SC : O(N)
