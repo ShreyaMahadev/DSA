@@ -1,0 +1,32 @@
+// A monotonic stack is used here (stores only gretaer elements)
+
+class Solution {
+public:
+    vector<int> nextLargerElement(vector<int>& arr) {
+        int n = arr.size();
+        vector<int> ans(n, -1); // initialize all to -1
+        stack<int> st; // will store potential next greater elements
+        
+        for (int i = n - 1; i >= 0; i--) {
+            int curr = arr[i];
+            
+            // Pop all smaller elements
+            while (!st.empty() && st.top() <= curr) {
+                st.pop();
+            }
+            
+            // If stack is not empty, top is next greater
+            if (!st.empty()) {
+                ans[i] = st.top();
+            }
+            
+            // Push current element for future comparisons
+            st.push(curr);
+        }
+        
+        return ans;
+    }
+};
+
+TC : O(N)
+SC : O(N)
