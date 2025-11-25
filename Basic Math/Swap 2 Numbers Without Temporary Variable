@@ -1,0 +1,14 @@
+// Using XOR Operations
+// XOR is true (i.e 1) when inputs are different
+// XOR is false (i.e 0) when inputs are same
+
+class Solution {
+  public:
+    pair<int, int> get(int a, int b) {
+        
+        a=a^b;
+        b=a^b;
+        a=a^b;
+        return {a,b};
+    }   
+};
