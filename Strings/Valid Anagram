@@ -1,6 +1,10 @@
+Anagram : a word that is made by arranging the letters of another word in a different order
+eg : "listen" is an anagram of "silent" because they are made of the same letters
+
 class Solution {
 public:
     bool isAnagram(string s, string t) {
+
         unordered_map<char,int> s1;
         unordered_map<char,int> t1;
         for(char c:s)
@@ -9,8 +13,6 @@ public:
             t1[c]++;
         return s1==t1;
 
-
-        
     }
 };
 
